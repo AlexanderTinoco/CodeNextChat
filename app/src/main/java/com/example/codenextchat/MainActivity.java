@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> messages = new ArrayList<>();
     ArrayAdapter<String> messagesAdapter;
 
+    //TODO: Define a DatabaseReference reference to the messages object here
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +25,26 @@ public class MainActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.edit_text);
 
+        //TODO: Place a FirebaseDatabase reference to the database here
+
+
+
+        //TODO: Instantiate the DatabaseReference to the messages object here
+
+
         ListView listView = findViewById(R.id.list_view);
         messagesAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, messages);
         listView.setAdapter(messagesAdapter);
+
+        //TODO: Add a listener for when a child message is added to the messages object in the db here
+        //when a child message has been added to the db:
+        //get the message String from the Snapshot and add it to the ArrayList
+        //notify the adapter to update the listview with a new message
+
+
+
+
     }
 
     public void sendMessage(View view) {
@@ -34,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
         //push the message as a child to the messages object in the db
         String message = editText.getText().toString();
         editText.setText("");
-        messages.add(message);
-        messagesAdapter.notifyDataSetChanged();
+        messages.add(message); //TODO: remove later
+        messagesAdapter.notifyDataSetChanged(); //TODO: remove later
+
+        //TODO: push the message as a child to the messages object in the db
+
     }
 }
